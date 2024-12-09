@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yassen Ahmed | Frontend Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            light: '#22d3ee',
+                            DEFAULT: '#06b6d4',
+                            dark: '#0891b2'
+                        },
+                        accent: {
+                            light: '#f472b6',
+                            DEFAULT: '#ec4899',
+                            dark: '#db2777'
+                        },
+                        dark: '#0f172a',
+                    },
+                    animation: {
+                        'gradient': 'gradient 8s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        gradient: {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
+    <!-- Background Effects -->
+    <div class="fixed inset-0 -z-10">
+        <!-- Gradient Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-pink-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"></div>
+        
+        <!-- Animated Blobs -->
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-300 dark:bg-purple-900 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 dark:bg-yellow-900 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 dark:bg-pink-900 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="text-2xl font-bold">
+                    <span class="gradient-text">YASSEN</span>
+                    <span class="text-sm text-slate-600 dark:text-slate-400">Developer</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    
+                    <!-- Theme Toggle -->
+                    <button id="themeToggle" class="p-2 rounded-full  hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300">
+                        <i class="fas fa-sun text-yellow-500 dark:hidden text-xl"></i>
+                        <i class="fas fa-moon text-blue-500 hidden dark:block text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center space-x-4">
+                    <button id="themeToggle-mobile" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800">
+                        <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+                        <i class="fas fa-moon text-blue-500 hidden dark:block"></i>
+                    </button>
+                    
+                    <button id="mobileMenuBtn" class="text-slate-600 dark:text-slate-300 hover:text-primary">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white/95 dark:bg-slate-900/95">
+            <div class="container mx-auto px-6 py-4 space-y-4">
+                <a href="#home" class="block nav-link">Home</a>
+                <a href="#about" class="block nav-link">About</a>
+                <a href="#projects" class="block nav-link">Projects</a>
+                <a href="#contact" class="block nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-16 relative overflow-hidden">
+        <!-- Floating Elements -->
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="grid grid-cols-3 gap-8 opacity-10">
+                <div class="w-24 h-24 bg-primary rounded-full filter blur-xl animate-float"></div>
+                <div class="w-24 h-24 bg-accent rounded-full filter blur-xl animate-float animation-delay-2000"></div>
+                <div class="w-24 h-24 bg-secondary rounded-full filter blur-xl animate-float animation-delay-4000"></div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="md:w-1/2 space-y-8" data-aos="fade-right">
+                    <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+                        Hi 👋, I'm 
+                        <span class="gradient-text">Yassen Ahmed</span>
+                        <span class="block text-3xl md:text-4xl mt-4 text-gray-600 dark:text-gray-300">
+                            Frontend Developer & UI Designer
+                        </span>
+                    </h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Crafting beautiful web experiences with modern technologies
+                    </p>
+                    <div class="flex gap-6">
+                        <a href="#contact" 
+                           class="px-8 py-4 bg-gradient-to-r from-primary to-accent text-white rounded-full hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 transform hover:-translate-y-1">
+                            Contact Me
+                        </a>
+                        <a href="#projects" 
+                           class="px-8 py-4 border-2 border-primary text-primary dark:text-white rounded-full hover:bg-primary hover:text-white transition-all duration-300 transform hover:-translate-y-1">
+                            View Projects
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative" data-aos="fade-left">
+                    <div class="relative w-80 h-80 mx-auto">
+                        <!-- Profile Image Container -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full animate-pulse opacity-75 blur-2xl"></div>
+                        <img src="images/me.png" alt="Yassen Ahmed" 
+                             class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white dark:border-gray-800 shadow-xl animate-float">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 ">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <p class="text-gray-600 dark:text-gray-400">
+                        I'm a passionate Frontend Developer with expertise in creating responsive and user-friendly web applications.
+                        My journey in web development started with HTML and CSS, and I've since expanded my skills to include
+                        JavaScript, Python, and various modern frameworks.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <span class="px-4 py-2 bg-primary/10 text-primary rounded-full">HTML</span>
+                        <span class="px-4 py-2 bg-primary/10 text-primary rounded-full">CSS</span>
+                        <span class="px-4 py-2 bg-primary/10 text-primary rounded-full">JavaScript</span>
+                        <span class="px-4 py-2 bg-primary/10 text-primary rounded-full">Python</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-2">2+</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Years Experience</p>
+                    </div>
+                    <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-2">15+</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Projects Completed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">My Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card -->
+                <div class="glass-effect hover-card rounded-xl overflow-hidden">
+                    <div class="relative group">
+                        <img src="images/project.png" alt="Project 1" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                            <div class="p-6 space-y-2">
+                                <h3 class="text-xl font-bold text-white">Just Do It Website</h3>
+                                <p class="text-gray-200">Just Do It is a simple and intuitive task manager web application that helps you organize your tasks effectively.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full">HTML</span>
+                            <span class="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full">CSS</span>
+                            <span class="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full">JavaScript</span>
+                        </div>
+
+                        
+                        <div class="flex justify-between">
+                            <a href="https://github.com/YassenDev/just-do-it" class="text-primary hover:text-primary/80 flex items-center gap-2">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://just-do-it-nu.vercel.app/" class="text-primary hover:text-primary/80 flex items-center gap-2">
+                                Live Demo <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-effect hover-card rounded-xl overflow-hidden">
+                    <div class="relative group">
+                        <img src="images/project3.png" alt="Project 1" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                            <div class="p-6 space-y-2">
+                                <h3 class="text-xl font-bold text-white">Portfolio Website</h3>
+                                <p class="text-gray-200">This project showcases my skills, projects, and accomplishments as a front-end developer.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full">HTML</span>
+                            <span class="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full">Tailwind</span>
+                            <span class="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full">JavaScript</span>
+                        </div>
+                        <div class="flex justify-between"></div>
+                            <a href="#" class="text-primary hover:text-primary/80 flex items-center gap-2">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://yassenahmed.xyz" class="text-primary hover:text-primary/80 flex items-center gap-2">
+                                Live Demo <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative overflow-hidden">
+        <!-- Background Effect -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent dark:via-primary/10"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-4xl font-bold text-center mb-8 gradient-text">Let's Connect!</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+                Feel free to reach out through any of these platforms
+            </p>
+
+            <!-- Social Media Cards -->
+            <div class="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                <!-- Instagram Card -->
+                <a href="https://www.instagram.com/_7lilhappy7_" target="_blank" 
+                   class="glass-card p-6 text-center group hover:scale-105 transition-all duration-300">
+                    <div class="relative w-16 h-16 mx-auto mb-4">
+                        <div class="absolute inset-0 bg-gradient-to-br from-pink-500 via-purple-500 to-orange-400 rounded-full animate-pulse opacity-75 group-hover:opacity-100"></div>
+                        <i class="fab fa-instagram text-3xl relative z-10 flex items-center justify-center w-full h-full text-white"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Instagram</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">@7_lilhappy7_</p>
+                </a>
+
+                <!-- Discord Card -->
+                <a href="https://discord.com/users/612527697851318274" target="_blank"
+                   class="glass-card p-6 text-center group hover:scale-105 transition-all duration-300">
+                    <div class="relative w-16 h-16 mx-auto mb-4">
+                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500 via-purple-500 to-blue-500 rounded-full animate-pulse opacity-75 group-hover:opacity-100"></div>
+                        <i class="fab fa-discord text-3xl relative z-10 flex items-center justify-center w-full h-full text-white"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Discord</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">i_lilhappy</p>
+                </a>
+
+                <!-- GitHub Card -->
+                <a href="https://github.com/YassenDev" target="_blank"
+                   class="glass-card p-6 text-center group hover:scale-105 transition-all duration-300">
+                    <div class="relative w-16 h-16 mx-auto mb-4">
+                        <div class="absolute inset-0 bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 rounded-full animate-pulse opacity-75 group-hover:opacity-100"></div>
+                        <i class="fab fa-github text-3xl relative z-10 flex items-center justify-center w-full h-full text-white"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">GitHub</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">@YassenDev</p>
+                </a>
+            </div>
+
+            <!-- Quick Contact Message -->
+            <p class="text-center mt-12 text-gray-600 dark:text-gray-400">
+                Preferred contact method: 
+                <span class="text-primary">Discord</span> 
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 dark:text-gray-400">© 2024 Yassen Ahmed. All rights reserved.</p>
+
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
