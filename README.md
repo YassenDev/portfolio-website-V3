@@ -3,7 +3,7 @@
 
 Welcome to **Portfolio Website 3.0** – a modern, sleek, and fully responsive portfolio designed to showcase your skills, projects, and professional journey with style. 🚀  
 
-![Portfolio Screenshot](https://media.discordapp.net/attachments/1137039398911885412/1306676555883216958/image.png?ex=6740c35f&is=673f71df&hm=c12c8e63652b78de17301c4ef9c165ca22f61b08704bb0c30191847c42a3a9ce&=&format=webp&quality=lossless&width=1361&height=676)  
+![Portfolio Screenshot](images/project3.png)  
  
 
 ---
